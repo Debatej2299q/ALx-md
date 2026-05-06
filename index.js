@@ -10,7 +10,7 @@ import { loadSettings, getSetting } from './settings.js'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 await loadSettings()
 
-let commands = new Map()
+export let commands = new Map()[cite: 3]
 let botReady = false
 let sock = null
 
@@ -29,28 +29,37 @@ const loadCommands = async () => {
     console.log(`✅ Loaded ${commands.size} triggers.`)
 }
 
+// connection logic
 const startBot = async () => {
-    const { state, saveCreds } = await useMultiFileAuthState('auth')
-    const { version } = await fetchLatestBaileysVersion()
+    const { state, saveCreds } = await useMultiFileAuthState('auth');
+    const { version } = await fetchLatestBaileysVersion();
 
     sock = makeWASocket({
         version,
         logger: pino({ level: 'silent' }),
         auth: state,
-        browser: [getSetting('bot.name'), 'Chrome', '1.0.0'],
+        // REQUIRED: Use "Ubuntu" or "Chrome" as the first element for pairing
+        browser: ["Ubuntu", "Chrome", "20.0.04"], 
         markOnlineOnConnect: true
-    })
+    });
 
+    // Pairing Logic
     if (getSetting('bot.auth') === 'pr' && !sock.authState.creds.registered) {
-        const owner = getSetting('owner.number').replace(/\D/g, '')
+        // Clean the number to ensure only digits exist
+        let owner = getSetting('owner.number').replace(/\D/g, '');
+        
+        // Delay ensures the socket is ready to request the code
         setTimeout(async () => {
             try {
-                const code = await sock.requestPairingCode(owner)
-                console.log(`🔑 Pairing Code: ${code}`)
-            } catch (e) { console.error('Pairing Error:', e.message) }
-        }, 3000)
+                console.log(`🧪 Requesting pairing code for: ${owner}`);
+                const code = await sock.requestPairingCode(owner);
+                console.log(`🔑 YOUR PAIRING CODE: ${code}`);
+            } catch (e) { 
+                console.error('❌ Pairing Error:', e.message); 
+            }
+        }, 5000)
     }
-
+    
     sock.ev.on('creds.update', saveCreds)
 
     sock.ev.on('connection.update', async ({ connection, lastDisconnect, qr }) => {

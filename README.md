@@ -39,7 +39,7 @@ Edit `config.json`:
 }
 ```
 
-**Auth modes**: `pr` (pairing code) or `qr` (QR code)
+> **Auth modes**: `pr` (pairing code) or `qr` (QR code)
 
 ## Commands
 

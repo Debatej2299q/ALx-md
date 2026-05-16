@@ -39,7 +39,7 @@ Edit `config.json`:
 }
 ```
 
-> **Auth modes**: `pr` (pairing code) or `qr` (QR code)
+**Auth modes**: `pr` (pairing code) or `qr` (QR code)
 
 ## Commands
 
@@ -56,7 +56,8 @@ Edit `config.json`:
 ## Credits
 
 - **[Baileys](https://github.com/WhiskeySockets/Baileys)**: WhatsApp Web API library
-- **Contributor**: [@manjisama1](https://github.com/manjisama1)
+- **Founder**: [@debatej2299q](https://github.com/debatej2299q)
+- **Co-Founder**: [@manjisama1](https://github.com/manjisama1)
 
 ## License
 

@@ -1,0 +1,22 @@
+{
+  "bot": {
+    "name": "ALx-MD",
+    "version": "2.0.0",
+    "prefix": "/",
+    "auth": "pr",
+    "privateMode": true
+  },
+  "owner": {
+    "number": "4915678910088",
+    "name": "MJ"
+  },
+  "features": {
+    "autoReply": false,
+    "antiSpam": false,
+    "welcomeMsg": false
+  },
+  "limits": {
+    "messageDelay": 1000,
+    "maxRetries": 3
+  }
+}

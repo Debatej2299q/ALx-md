@@ -1,6 +1,6 @@
-# ECO-ALLIANCE Bot
+# ALx-md
 
-WhatsApp bot built with Baileys 7.0.0-rc.9
+WhatsApp bot built with Baileys 7.0.0-rc.11
 
 ## Features
 

@@ -1,4 +1,4 @@
-# ALx-md
+# Appu boss
 
 WhatsApp bot built with Baileys 7.0.0-rc.11
 
@@ -33,8 +33,8 @@ Edit `config.json`:
     "prefix": ".",
     "auth": "pr"
   },
-  "owner": {
-    "number": "your_number_here"
+  "owner": { Appu boss
+    "number": "918848246883"
   }
 }
 ```
